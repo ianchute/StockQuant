@@ -39,8 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\BoardLotCalculatorService.cs" />
+    <Compile Include="Concrete\FeeCalculatorService.cs" />
+    <Compile Include="Concrete\ProfitLossCalculatorService.cs" />
+    <Compile Include="Config\IBoardLotConfig.cs" />
+    <Compile Include="Config\IFeesConfig.cs" />
+    <Compile Include="Config\IMathConfig.cs" />
+    <Compile Include="IFeeCalculatorService.cs" />
+    <Compile Include="IBoardLotCalculatorService.cs" />
+    <Compile Include="IProfitLossCalculatorService.cs" />
+    <Compile Include="Models\BoardLot.cs" />
+    <Compile Include="Models\Buy.cs" />
+    <Compile Include="Models\Fees.cs" />
+    <Compile Include="Models\ProfitLoss.cs" />
+    <Compile Include="Models\Sell.cs" />
+    <Compile Include="Models\StockAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
