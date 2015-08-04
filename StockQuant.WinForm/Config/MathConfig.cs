@@ -4,6 +4,6 @@ namespace StockQuant.WinForm.Config
 {
     public class MathConfig : Configurator.Config, IMathConfig
     {
-        public double breakeven_interval { get; set; }
+        public double epsilon { get; set; }
     }
 }

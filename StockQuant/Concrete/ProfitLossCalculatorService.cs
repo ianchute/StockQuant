@@ -44,12 +44,12 @@ namespace StockQuant.Concrete
             for (int i = 0; i < int.MaxValue; ++i )
             {
                 ProfitLoss pl = CalculateProfitLoss(buy, sell);
-                if (Math.Abs(pl.Ratio - targetProfit) < 0.01)
+                if (Math.Abs(pl.Ratio - targetProfit) < config.epsilon)
                     break;
                 if (targetProfit < pl.Ratio)
-                    sell.Price -= config.breakeven_interval;
+                    sell.Price -= config.epsilon;
                 else
-                    sell.Price += config.breakeven_interval;
+                    sell.Price += config.epsilon;
             }
 
             return sell;
@@ -66,9 +66,12 @@ namespace StockQuant.Concrete
             for (int i = 0; i < int.MaxValue; ++i)
             {
                 ProfitLoss pl = CalculateProfitLoss(buy, sell);
-                if (Math.Abs(pl.Amount - targetProfit) < 0.001)
+                if (Math.Abs(pl.Amount - targetProfit) < config.epsilon)
                     break;
-                sell.Price += config.breakeven_interval;
+                if (targetProfit < pl.Ratio)
+                    sell.Price -= config.epsilon;
+                else
+                    sell.Price += config.epsilon;
             }
 
             return sell;
